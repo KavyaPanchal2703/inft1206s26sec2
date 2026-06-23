@@ -1,0 +1,153 @@
+/*
+Name: Kavya Panchal
+File: style.css
+Date: 20 June 2026
+ Part 2 for INFT1206 - Web Development Fundamentals
+*/
+
+/* Solution: Apply fonts to the page */
+
+@import "https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap";
+
+html {
+  font-family: "IBM Plex Serif", serif;
+}
+
+h1,
+h2 {
+  font-family: "Bevan", serif;
+}
+
+/* General setup */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0 20px;
+  min-width: 980px;
+  max-width: 1400px;
+}
+
+/* Layout */
+
+main {
+  display: grid;
+  grid-template-columns: 5fr 2fr 2fr;
+  gap: 40px;
+  padding: 20px 0;
+}
+
+/* Header and footer */
+
+header {
+  border-bottom: 5px solid #aa6666;
+}
+
+footer {
+  border-top: 5px solid #aa6666;
+}
+
+footer p {
+  text-align: center;
+}
+
+/* Solution: General text styling */
+
+h1 {
+  font-size: 3rem;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 0;
+  letter-spacing: 1px;
+}
+
+section h2 + p {
+  text-indent: 2rem;
+}
+
+p,
+li {
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+}
+
+/* Solution: Link styling */
+
+a {
+  outline: none;
+}
+
+a[href*="http"] {
+  padding-right: 16px;
+  background: url("../image/external-link-52.png") no-repeat right center;
+  background-size: 14px 14px;
+}
+
+a:link,
+a:visited {
+  color: #aa6666;
+}
+
+a:focus,
+a:hover {
+  text-decoration: none;
+  color: #773333;
+}
+
+/* Solution: List styling */
+
+ul,
+ol {
+  margin: 1rem 0;
+}
+
+ul {
+  list-style-type: square;
+}
+
+ol {
+  list-style-type: lower-roman;
+}
+
+/* Solution: Navigation menu styling */
+
+nav ul {
+  padding-left: 0;
+}
+
+nav li {
+  list-style-type: none;
+  margin-bottom: 1rem;
+}
+
+nav li a {
+  font-family: "Bevan", serif;
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  line-height: 3.5;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: 1px solid #aa6666;
+}
+
+nav li a:focus,
+nav li a:hover {
+  color: white;
+  background: #aa6666;
+}
+
+nav li a:active {
+  color: white;
+  background: black;
+}
