@@ -1,148 +1,139 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Forms challenge</title>
+    <link href="style.css" rel="stylesheet" />
+    <script defer src="index.js"></script>
+  </head>
+  <!--
+        Name: Kavya Panchal
+        Studet ID: 101041204
+        File: index.html
+        Date: 6th May 2026
+        Description: This is the home page for the INFT1206 
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Forms Challenge</title>
-
-  <link rel="stylesheet" href="style.css">
-</head>
-<!--
-    Name:Kavya Panchal
-    File: Assignment 2 part 1
-    Date:1st JUNE 2026
-    Description: Making a feedback form
     -->
-<body>
+  <body>
+    <h1>We want your feedback!</h1>
 
-<h1>Payment Form</h1>
+    <p>
+      We're very excited that you visited the
+      <a href="#">little house in the woods</a>, and we want to hear what you
+      thought of it! Please fill in the below sections. You don't need to
+      provide your name or contact details, but if you do, we'll enter you into
+      a <a href="#">prize draw</a> where you'll have a chance to win prizes.
+    </p>
 
-<form>
+    <img
+      src="https://mdn.github.io/shared-assets/images/examples/learn/woodland-strip.jpg"
+      alt="" />
 
-  <fieldset>
+    <form>
+      <div class="form-section">
+        <h2>Facilities</h2>
 
-    <legend>Personal Information</legend>
+        <fieldset>
+          <legend>Was the porridge</legend>
 
-    <label for="name">Name:</label>
-    <input 
-      type="text" 
-      id="name" 
-      name="name"
-      required>
+          <input type="radio" id="porridge-1" name="porridge" value="hot"
+                 checked />
+          <label for="porridge-1">Too hot?</label>
 
+          <input type="radio" id="porridge-2" name="porridge" value="cold" />
+          <label for="porridge-2">Too cold?</label>
 
-    <label for="email">Email:</label>
-    <input 
-      type="email"
-      id="email"
-      name="email"
-      required>
+          <input type="radio" id="porridge-3" name="porridge" value="right" />
+          <label for="porridge-3">Just right?</label>
+        </fieldset>
 
+        <fieldset>
+          <legend>Were the beds</legend>
 
-    <label for="phone">Phone:</label>
-    <input
-      type="tel"
-      id="phone"
-      name="phone"
-      pattern="[0-9]{10}"
-      required>
+          <input type="radio" id="beds-1" name="beds" value="hard" checked />
+          <label for="beds-1">Too hard?</label>
 
-  </fieldset>
+          <input type="radio" id="beds-2" name="beds" value="soft" />
+          <label for="beds-2">Too soft?</label>
 
+          <input type="radio" id="beds-3" name="beds" value="right" />
+          <label for="beds-3">Just right?</label>
+        </fieldset>
 
+        <fieldset>
+          <legend>Describe the chairs (select all you agree with)</legend>
 
-  <fieldset>
+          <input type="checkbox" id="comfy" name="comfy" />
+          <label for="comfy">Comfy</label>
 
-    <legend>Payment Information</legend>
+          <input type="checkbox" id="luxurious" name="luxurious" />
+          <label for="luxurious">Luxurious</label>
 
+          <input type="checkbox" id="hi-tech" name="hi-tech" />
+          <label for="hi-tech">Hi-tech</label>
 
-    <label for="card">Card Number:</label>
+          <input type="checkbox" id="pretty" name="pretty" />
+          <label for="pretty">Pretty</label>
 
-    <input
-      type="text"
-      id="card"
-      name="card"
-      pattern="[0-9]{16}"
-      required>
+          <input type="checkbox" id="majestic" name="majestic" />
+          <label for="majestic">Majestic</label>
+        </fieldset>
+      </div>
 
+      <div class="form-section">
+        <h2>About your hosts</h2>
 
-    <label for="expiry">Expiry Date:</label>
+        <div class="separator">
+          <label for="favorite">Who's your favorite bear?</label>
+          <select name="favorite" id="favorite">
+            <option value="papa">Papa bear</option>
+            <option value="mama">Mama bear</option>
+            <option value="junior">Junior</option>
+            <option value="dozer">Dozer</option>
+          </select>
+        </div>
 
-    <input
-      type="month"
-      id="expiry"
-      name="expiry"
-      required>
+        <div class="separator">
+          <label for="greeting">Which greeting did you prefer?</label>
+          <select name="greeting" id="greeting">
+            <option value="wave">Wave</option>
+            <option value="friendly">Friendly greeting</option>
+            <option value="growl">Growl</option>
+            <option value="claw">Claw marks in the door</option>
+          </select>
+        </div>
+      </div>
 
+      <div class="form-section">
+        <h2>Any other feedback?</h2>
 
+        <label for="comments">Give us your comments</label>
+        <br />
+        <textarea id="comments" name="comments"></textarea>
+      </div>
 
-    <label for="cvv">CVV:</label>
+      <div class="form-section">
+        <h2>Your details</h2>
 
-    <input
-      type="password"
-      id="cvv"
-      name="cvv"
-      pattern="[0-9]{3}"
-      required>
+        <div class="separator">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" />
+        </div>
 
+        <div class="separator">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" />
+        </div>
 
-  </fieldset>
+        <div class="separator">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" />
+        </div>
+      </div>
 
-
-
-  <fieldset>
-
-    <legend>Delivery Address</legend>
-
-
-    <label for="address">
-      Address:
-    </label>
-
-    <textarea
-      id="address"
-      name="address"
-      required>
-    </textarea>
-
-
-    <label for="city">
-      City:
-    </label>
-
-    <input
-      type="text"
-      id="city"
-      name="city"
-      required>
-
-
-
-    <label for="country">
-      Country:
-    </label>
-
-    <select id="country">
-
-      <option>Canada</option>
-      <option>USA</option>
-      <option>India</option>
-
-    </select>
-
-
-  </fieldset>
-
-
-  <button type="submit">
-    Submit Payment
-  </button>
-
-
-</form>
-
-
-</body>
-
+      <div class="form-section">
+        <button>Submit</button>
+      </div>
+    </form>
+  </body>
 </html>
