@@ -1,38 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+    <!--
+        Name: Kavya Panchal
+        Studet ID: 101041204
+        File: index.html
+        Date: 6th May 2026
+        Description: This is the home page for the INFT1206 
+
+    -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Story Generator</title>
+
+    <link rel="stylesheet" href="style.css">
 </head>
-<!--
-    Name:Kavya Panchal
-    File: Assignment 2 part 1
-    Date:1st JUNE 2026
-    Description: Making splash page
-    -->
-    <body>
+<body>
 
     <h1>Random Story Generator</h1>
-<label>
-        Enter your name:
+
+    <div>
+        <label for="custom-name">Enter custom name:</label>
         <input id="custom-name" type="text">
-    </label>
+    </div>
 
-    <br><br>
+    <fieldset>
+        <legend>Choose locale:</legend>
 
-    <button class="generate">Generate Story</button>
+        <label for="us">US</label>
+        <input id="us" type="radio" name="uk-us" checked>
 
-    <br><br>
+        <label for="uk">UK</label>
+        <input id="uk" type="radio" name="uk-us">
+    </fieldset>
 
-    <label>
-        <input id="uk" type="checkbox">
-        Use UK units
-    </label>
+    <button class="generate">Generate random story</button>
 
-    <p class="story" style="visibility:hidden;"></p>
-<!-- Connect JavaScript -->
-    <script src="java1.js"></script>
+    <p class="story"></p>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
