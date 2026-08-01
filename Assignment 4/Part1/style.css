@@ -1,0 +1,17 @@
+/*
+Name: Kavya Panchal
+File: style.css
+Date: 31 July 2026
+Lab 4 Part 1 for INFT1206 - Web Development Fundamentals
+*/
+
+fieldset {
+  margin-top: 20px;
+}
+
+p {
+  margin-top: 10px;
+  background: #ffc125;
+  padding: 20px;
+  visibility: hidden;
+}
