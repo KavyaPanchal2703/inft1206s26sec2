@@ -14,4 +14,135 @@
     Date:1st JUNE 2026
     Description: Making a feedback form
     -->
-    
+<body>
+
+<h1>Payment Form</h1>
+
+<form>
+
+  <fieldset>
+
+    <legend>Personal Information</legend>
+
+    <label for="name">Name:</label>
+    <input 
+      type="text" 
+      id="name" 
+      name="name"
+      required>
+
+
+    <label for="email">Email:</label>
+    <input 
+      type="email"
+      id="email"
+      name="email"
+      required>
+
+
+    <label for="phone">Phone:</label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      pattern="[0-9]{10}"
+      required>
+
+  </fieldset>
+
+
+
+  <fieldset>
+
+    <legend>Payment Information</legend>
+
+
+    <label for="card">Card Number:</label>
+
+    <input
+      type="text"
+      id="card"
+      name="card"
+      pattern="[0-9]{16}"
+      required>
+
+
+    <label for="expiry">Expiry Date:</label>
+
+    <input
+      type="month"
+      id="expiry"
+      name="expiry"
+      required>
+
+
+
+    <label for="cvv">CVV:</label>
+
+    <input
+      type="password"
+      id="cvv"
+      name="cvv"
+      pattern="[0-9]{3}"
+      required>
+
+
+  </fieldset>
+
+
+
+  <fieldset>
+
+    <legend>Delivery Address</legend>
+
+
+    <label for="address">
+      Address:
+    </label>
+
+    <textarea
+      id="address"
+      name="address"
+      required>
+    </textarea>
+
+
+    <label for="city">
+      City:
+    </label>
+
+    <input
+      type="text"
+      id="city"
+      name="city"
+      required>
+
+
+
+    <label for="country">
+      Country:
+    </label>
+
+    <select id="country">
+
+      <option>Canada</option>
+      <option>USA</option>
+      <option>India</option>
+
+    </select>
+
+
+  </fieldset>
+
+
+  <button type="submit">
+    Submit Payment
+  </button>
+
+
+</form>
+
+
+</body>
+
+</html>
