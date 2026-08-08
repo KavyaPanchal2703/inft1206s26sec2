@@ -1,121 +1,50 @@
-// ===============================
-// SEARCH
-// ===============================
+/*
+Name: Kavya Panchal
+File: script.js
+Date: 7 August 2026
+Lab 5 Part 1 for INFT1206 - Web Development Fundamentals
+*/
 
-const searchForm = document.getElementById("searchForm");
+const showHideBtn = document.querySelector('.show-hide');
+const commentWrapper = document.querySelector('.comment-wrapper');
 
-const searchInput = document.getElementById("search");
+commentWrapper.style.display = 'none';
 
+showHideBtn.onclick = function() {
+  let showHideText = showHideBtn.textContent;
+  if(showHideText === 'Show comments') {
+    showHideBtn.textContent = 'Hide comments';
+    commentWrapper.style.display = 'block';
+  } else {
+    showHideBtn.textContent = 'Show comments';
+    commentWrapper.style.display = 'none';
+  }
+};
 
-searchForm.addEventListener("submit", function (event) {
+const form = document.querySelector('.comment-form');
+const nameField = document.querySelector('#name');
+const commentField = document.querySelector('#comment');
+const list = document.querySelector('.comment-container');
 
-    event.preventDefault();
+form.onsubmit = function(e) {
+  e.preventDefault();
+  submitComment();
+};
 
-    const searchText = searchInput.value.trim();
+function submitComment() {
+  const listItem = document.createElement('li');
+  const namePara = document.createElement('p');
+  const commentPara = document.createElement('p');
+  const nameValue = nameField.value;
+  const commentValue = commentField.value;
 
+  namePara.textContent = nameValue;
+  commentPara.textContent = commentValue;
 
-    if (searchText === "") {
+  list.appendChild(listItem);
+  listItem.appendChild(namePara);
+  listItem.appendChild(commentPara);
 
-        searchInput.focus();
-
-        return;
-    }
-
-
-    alert("You searched for: " + searchText);
-
-});
-
-
-
-// ===============================
-// SHOW / HIDE COMMENTS
-// ===============================
-
-const commentButton =
-    document.getElementById("commentButton");
-
-const commentBox =
-    document.getElementById("commentBox");
-
-
-commentButton.addEventListener("click", function () {
-
-    const currentlyHidden =
-        commentBox.hidden;
-
-
-    commentBox.hidden =
-        !currentlyHidden;
-
-
-    if (currentlyHidden) {
-
-        commentButton.textContent =
-            "Hide comments";
-
-        commentButton.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-
-    } else {
-
-        commentButton.textContent =
-            "Show comments";
-
-        commentButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-    }
-
-});
-
-
-
-// ===============================
-// ADD COMMENTS
-// ===============================
-
-const commentForm =
-    document.getElementById("commentForm");
-
-const commentList =
-    document.getElementById("commentList");
-
-
-commentForm.addEventListener("submit", function (event) {
-
-    event.preventDefault();
-
-
-    const name =
-        document.getElementById("name").value.trim();
-
-
-    const comment =
-        document.getElementById("comment").value.trim();
-
-
-    if (name === "" || comment === "") {
-
-        return;
-
-    }
-
-
-    const newComment =
-        document.createElement("li");
-
-
-    newComment.textContent =
-        name + ": " + comment;
-
-
-    commentList.appendChild(newComment);
-
-
-    commentForm.reset();
-
-});
+  nameField.value = '';
+  commentField.value = '';
+}

@@ -1,869 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>The Trouble With Bears</title>
-    <!--
-    Name:Kavya Panchal
-    File: Assignment 2 part 1
-    Date:1st JUNE 2026
-    Description: Adding features to bouncing balls
-    -->
-
-    <!-- Fonts similar to the MDN screenshot -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One"
-          rel="stylesheet">
-
-    <style>
-
-        /* =========================
-           GENERAL PAGE
-        ========================= */
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            background-color: #ddddee;
-            font-size: 10px;
-        }
-
-        body {
-            width: 80%;
-            min-width: 800px;
-            margin: 0 auto;
-            background-color: #ddddee;
-        }
-
-
-        /* =========================
-           HEADINGS AND TEXT
-        ========================= */
-
-        h1,
-        h2,
-        h3 {
-            font-family: "Sonsie One", cursive;
-            color: #222;
-        }
-
-        p,
-        li,
-        input,
-        label,
-        table {
-            font-family: "Open Sans Condensed", Arial, sans-serif;
-            color: #222;
-        }
-
-        p,
-        li,
-        table {
-            font-size: 1.6rem;
-            line-height: 1.5;
-        }
-        /* =========================
-           HEADER
-        ========================= */
-
-        header {
-            padding: 15px 0 20px;
-        }
-
-        header h1 {
-            margin: 0;
-            text-align: center;
-
-            font-size: 4rem;
-
-            color: white;
-
-            text-shadow:
-                2px 2px 5px #555,
-                3px 3px 8px #777;
-        }
-
-
-        /* =========================
-           NAVIGATION
-        ========================= */
-
-        nav {
-            height: 65px;
-
-            background-color: white;
-
-            display: flex;
-            align-items: center;
-
-            margin-bottom: 8px;
-        }
-
-        nav ul {
-            flex: 2;
-
-            display: flex;
-
-            list-style: none;
-
-            margin: 0;
-            padding: 0;
-        }
-
-        nav li {
-            flex: 1;
-
-            text-align: center;
-        }
-
-        nav a {
-            color: #222;
-
-            text-decoration: none;
-
-            text-transform: uppercase;
-
-            font-size: 1.7rem;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
-
-
-        /* =========================
-           SEARCH
-        ========================= */
-
-        .search {
-            flex: 1;
-
-            display: flex;
-
-            padding: 0 15px;
-
-            gap: 8px;
-        }
-
-        .search input[type="search"] {
-            width: 170px;
-
-            height: 30px;
-
-            border: 1px solid #ddd;
-
-            padding: 5px;
-
-            font-size: 1.4rem;
-        }
-
-        .search input[type="submit"] {
-            width: 65px;
-
-            height: 30px;
-
-            border: none;
-
-            background-color: #333;
-
-            color: white;
-
-            cursor: pointer;
-
-            font-size: 1.4rem;
-        }
-
-        .search input[type="submit"]:hover {
-            background-color: #111;
-        }
-        /* =========================
-           MAIN PARTITION
-           
-           THIS CREATES THE EXACT
-           VERTICAL PURPLE LINE
-           BETWEEN ARTICLE AND RELATED
-        ========================= */
-
-        main {
-            display: grid;
-
-            grid-template-columns:
-                minmax(0, 5fr)
-                8px
-                minmax(250px, 2fr);
-
-            margin: 0;
-
-            padding: 0;
-        }
-
-        /* The visible partition */
-        .partition {
-            background-color: #ddddee;
-
-            min-height: 100%;
-        }
-
-
-        /* =========================
-           ARTICLE
-        ========================= */
-
-        article {
-            background-color: white;
-
-            padding: 10px 30px 40px;
-        }
-
-        article h2 {
-            font-size: 3rem;
-
-            text-align: center;
-
-            margin-top: 10px;
-            margin-bottom: 15px;
-        }
-
-        article h3 {
-            font-size: 2.2rem;
-
-            margin-top: 25px;
-            margin-bottom: 8px;
-        }
-
-
-        /* =========================
-           RELATED SECTION
-        ========================= */
-
-        aside {
-            background-color: white;
-
-            padding: 10px 30px;
-
-            min-height: 600px;
-        }
-
-        aside h2 {
-            font-size: 3rem;
-
-            text-align: center;
-
-            margin-top: 10px;
-        }
-
-        aside ul {
-            margin-top: 30px;
-
-            padding-left: 25px;
-        }
-
-        aside li {
-            margin-bottom: 4px;
-        }
-
-        aside a {
-            color: #0000ee;
-
-            text-decoration: underline;
-        }
-
-        aside a:visited {
-            color: #551a8b;
-        }
-
-
-        /* =========================
-           TABLE
-        ========================= */
-
-        table {
-            width: 100%;
-
-            border-collapse: collapse;
-
-            background-color: #ddddee;
-
-            margin-top: 20px;
-        }
-
-        th,
-        td {
-            border: 1px solid #999;
-
-            padding: 8px;
-
-            text-align: center;
-        }
-
-        th {
-            background-color: #e6e6f0;
-        }
-
-
-        /* =========================
-           IMAGES
-        ========================= */
-
-        article img {
-            display: block;
-
-            max-width: 100%;
-
-            height: auto;
-
-            margin: 20px auto;
-        }
-
-
-        /* =========================
-           COMMENTS
-        ========================= */
-
-        .comments {
-            background-color: #ddeeff;
-
-            padding: 15px;
-
-            margin-top: 25px;
-        }
-
-        .comments button {
-            background-color: #333;
-
-            color: white;
-
-            border: none;
-
-            padding: 8px 15px;
-
-            cursor: pointer;
-
-            font-family: "Open Sans Condensed", sans-serif;
-
-            font-size: 1.5rem;
-        }
-
-        .comments button:hover {
-            background-color: #111;
-        }
-
-        .comment-form {
-            margin-top: 15px;
-        }
-
-        .comment-form label {
-            display: inline-block;
-
-            width: 80px;
-
-            margin: 8px;
-        }
-
-        .comment-form input[type="text"] {
-            width: 60%;
-
-            padding: 6px;
-        }
-
-        .comment-form input[type="submit"] {
-            display: block;
-
-            margin: 15px auto;
-
-            background-color: #333;
-
-            color: white;
-
-            border: none;
-
-            padding: 8px 20px;
-
-            cursor: pointer;
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            background-color: white;
-
-            margin-top: 8px;
-
-            padding: 10px 30px;
-        }
-
-
-        /* =========================
-           ACCESSIBILITY
-        ========================= */
-
-        a:focus,
-        button:focus,
-        input:focus {
-            outline: 3px solid #005fcc;
-
-            outline-offset: 2px;
-        }
-
-        .hidden {
-            position: absolute;
-
-            width: 1px;
-            height: 1px;
-
-            padding: 0;
-            margin: -1px;
-
-            overflow: hidden;
-
-            clip: rect(0, 0, 0, 0);
-
-            white-space: nowrap;
-
-            border: 0;
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 800px) {
-
-            body {
-                width: 95%;
-
-                min-width: 0;
-            }
-
-            nav {
-                height: auto;
-
-                padding: 15px;
-
-                flex-direction: column;
-            }
-
-            nav ul {
-                width: 100%;
-
-                margin-bottom: 15px;
-            }
-
-            nav li {
-                min-width: 0;
-            }
-
-            .search {
-                width: 100%;
-
-                justify-content: center;
-            }
-
-            main {
-                grid-template-columns:
-                    1fr
-                    8px
-                    1fr;
-            }
-
-            article {
-                padding: 10px 15px;
-            }
-
-            aside {
-                padding: 10px 15px;
-            }
-        }
-
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Accessibility assessment</title>
+<!--
+Name: Kavya Panchal
+File: index.html
+Date: 7 July 2026
+LAB 5 Part 1 for INFT1206 - Web Development Fundamentals
+-->
+
+<link href="https://fonts.googleapis.com/css2?family=Sonsie+One&family=Open+Sans+Condensed:wght@300;700&display=swap" rel="stylesheet">
+<link
+href="style.css" rel="stylesheet">
 </head>
-
-
 <body>
-<!-- =========================
-         HEADER
-    ========================= -->
-
-    <header>
-
-        <h1>
-            Welcome to our wildlife website
-        </h1>
-
-    </header>
-
-
-    <!-- =========================
-         NAVIGATION
-    ========================= -->
-
-    <nav aria-label="Main navigation">
-
-        <ul>
-
-            <li>
-                <a href="#">Home</a>
-            </li>
-
-            <li>
-                <a href="#">Our team</a>
-            </li>
-
-            <li>
-                <a href="#">Projects</a>
-            </li>
-
-            <li>
-                <a href="#">Blog</a>
-            </li>
-
-        </ul>
-
-
-        <form class="search" id="searchForm">
-
-            <label
-                class="hidden"
-                for="search">
-                Search
-            </label>
-
-            <input
-                id="search"
-                type="search"
-                placeholder="Search query">
-
-            <input
-                type="submit"
-                value="Go!">
-
-        </form>
-
-    </nav>
-
-
-    <!-- =========================
-         MAIN CONTENT
-    ========================= -->
-
-    <main>
-
-
-        <!-- LEFT ARTICLE -->
-
-        <article>
-
-            <h2>
-                The trouble with Bears
-            </h2>
-
-
-            <p>
-                By Evan Wild
-            </p>
-
-
-            <p>
-                Tall, lumbering, angry, dangerous.
-                The real live bears of this world are
-                proud, independent creatures, self-serving
-                and always on the hunt for food. Nothing
-                like the bears you see on TV, like Baloo
-                from renowned documentary, The Jungle Book.
-            </p>
-
-
-            <p>
-                So what are bears really like, and why
-                does the world's media portray them with
-                such a skewed vision? In this article we
-                try to answer those questions, and give
-                you a real insight into the life of the bear.
-            </p>
-
-
-            <h3>
-                Types of bear
-            </h3>
-
-
-            <p>
-                Bears come in two varieties — large and
-                medium. You don't get small bears. If you
-                have seen a small bear, then it was in fact
-                probably a baby bear (cub) from another species.
-            </p>
-
-
-            <p>
-                Bears can also be classified in terms of
-                their habitat — both large and medium bears
-                are just as at home in urban areas as they
-                are in the countryside.
-            </p>
-
-
-            <!-- TABLE -->
-
-            <table>
-
-                <caption class="hidden">
-                    Bear information
-                </caption>
-
-                <thead>
-
-                    <tr>
-
-                        <th>
-                            Bear Type
-                        </th>
-
-                        <th>
-                            Coat
-                        </th>
-
-                        <th>
-                            Adult Size
-                        </th>
-
-                        <th>
-                            Habitat
-                        </th>
-
-                    </tr>
-
-                </thead>
-
-
-                <tbody>
-
-                    <tr>
-
-                        <td>
-                            Wild
-                        </td>
-
-                        <td>
-                            Brown or black
-                        </td>
-
-                        <td>
-                            1.4–2.8 meters
-                        </td>
-
-                        <td>
-                            Woods and forests
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Urban
-                        </td>
-
-                        <td>
-                            Various
-                        </td>
-
-                        <td>
-                            1.2–2 meters
-                        </td>
-
-                        <td>
-                            Cities
-                        </td>
-
-                    </tr>
-
-                </tbody>
-
-            </table>
-
-
-            <h3>
-                Habitats and Eating habits
-            </h3>
-
-
-            <p>
-                Wild bears eat a variety of meat, fish,
-                fruit, nuts, and other naturally growing
-                ingredients. In general they will hunt for
-                food themselves in woodland or rivers.
-            </p>
-
-
-            <!-- BEAR IMAGE -->
-
-            <img
-                src="https://cdn.glitch.global/3e194d20-b2e0-4b08-8efa-dccfa5698a7b/wild-bear.jpg?v=1665376579987"
-                alt="A brown bear standing in a river">
-
-
-            <h3>
-                Mating rituals
-            </h3>
-
-
-            <p>
-                Bears are romantic creatures by nature,
-                and will naturally look for a mate that
-                they can spend the rest of their lives with.
-            </p>
-
-
-            <!-- COMMENTS -->
-
-            <section class="comments">
-
-                <h3>
-                    Comments
-                </h3>
-
-
-                <button
-                    id="commentButton"
-                    type="button"
-                    aria-expanded="false">
-
-                    Show comments
-
-                </button>
-
-
-                <div
-                    id="commentBox"
-                    hidden>
-
-                    <form
-                        class="comment-form"
-                        id="commentForm">
-
-
-                        <label for="name">
-                            Name:
-                        </label>
-
-                        <input
-                            id="name"
-                            type="text"
-                            required>
-
-
-                        <br>
-
-
-                        <label for="comment">
-                            Comment:
-                        </label>
-
-                        <input
-                            id="comment"
-                            type="text"
-                            required>
-
-
-                        <input
-                            type="submit"
-                            value="Submit comment">
-
-                    </form>
-
-
-                    <ul id="commentList"></ul>
-
-                </div>
-
-            </section>
-
-        </article>
-
-
-        <!-- =========================
-             PARTITION
-        ========================= -->
-
-        <div
-            class="partition"
-            aria-hidden="true">
-        </div>
-
-
-        <!-- =========================
-             RIGHT RELATED SECTION
-        ========================= -->
-
-        <aside>
-
-            <h2>
-                Related
-            </h2>
-
-
-            <ul>
-
-                <li>
-                    <a href="#">
-                        The trouble with Bees
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        The trouble with Otters
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        The trouble with Penguins
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        The trouble with Octopi
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        The trouble with Lemurs
-                    </a>
-                </li>
-
-            </ul>
-
-        </aside>
-
-
-    </main>
-
-
-    <footer>
-
-        <p>
-            ©Copyright 2050 by nobody.
-            All rights reversed.
-        </p>
-
-    </footer>
-
-
-    <script src="script.js"></script>
+<header>
+<h1>Welcome to our wildlife website</h1>
+</header>
+
+<nav>
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Our team</a></li>
+<li><a href="#">Projects</a></li>
+<li><a href="#">Blog</a></li>
+</ul>
+
+<form class="search">
+
+<label for="search" class="sr-only">
+Search the site
+</label>
+
+<input
+type="search"
+id="search"
+name="q"
+placeholder="Search query">
+
+<input
+type="submit"
+value="Go!">
+</form>
+</nav>
+
+<main>
+<article>
+<h2>The trouble with Bears</h2>
+<p>By Evan Wild</p>
+
+<p>
+Tall, lumbering, angry, dangerous. The real live bears of this world are
+proud, independent creatures, self-serving and always on the hunt for
+food. Nothing like the bears you see on TV, like Baloo from renowned
+documentary, The Jungle Book.
+</p>
+
+<p>
+So what are bears really like, and why does the world's media portray
+them with such a skewed vision? In this article we try to answer those
+questions, and give you a real insight into the life of the bear.
+</p>
+<h3>Types of bear</h3>
+<p>
+Bears come in two varieties — large and medium. You don't get small
+bears. If you have seen a small bear, then it was in fact probably a
+baby bear (cub) from another species.
+</p>
+
+<p>
+Bears can also be classified in terms of their habitat — both large and
+medium bears are just as at home in urban areas as they are in the
+countryside. Different habitats encourage different behaviour however,
+as you'll find out below. The table below also gives you some useful
+facts about bears.
+</p>
+
+<table>
+<caption>
+Bear comparison table
+</caption>
+
+<thead>
+<tr>
+<th scope="col">Bear Type</th>
+<th scope="col">Coat</th>
+<th scope="col">Adult size</th>
+<th scope="col">Habitat</th>
+<th scope="col">Lifespan</th>
+<th scope="col">Diet</th>
+</tr>
+</thead>
+<tbody>
+
+<tr>
+<th scope="row">Wild</th>
+<td>Brown or black</td>
+<td>1.4 to 2.8 meters</td>
+<td>Woods and forests</td>
+<td>25 to 28 years</td>
+<td>Fish, meat, plants</td>
+</tr>
+
+<tr>
+<th scope="row">Urban</th>
+<td>North Face</td>
+<td>18 to 22</td>
+<td>Condos and coffee shops</td>
+<td>20 to 32 years</td>
+<td>Starbucks, sushi</td>
+</tr>
+</tbody>
+</table>
+<h3>Habitats and eating habits</h3>
+<p>
+Wild bears eat a variety of meat, fish, fruit, nuts, and other naturally
+growing ingredients. In general they will hunt for food themselves in
+woodland or rivers, but at a push they will track down their sustenance
+from farms or country houses. They tend to live in relative isolation,
+in caves, tents, or cottages.
+</p>
+
+<img src="wild-bear.jpg"
+alt="A brown bear standing in shallow water">
+
+<p>
+Urban (gentrified) bears on the other hand have largely abandoned the
+old ways. They will hunt other urban creatures if necessary (including
+other predators like rats and foxes), but prefer to scavenge from
+readily available urban food outlets like dumpsters, bins, and fast food
+joints. When food has proven scarce, urban bears have even been known to
+break into people's kitchens and steal essentials like baked beans,
+ready meals, and microwave ovens.
+</p>
+
+<img src="urban-bear.jpg"
+alt="A polar bear standing behind the bars of a zoo enclosure">
+
+<p>
+Urban bears will sleep anywhere they can, from bus shelters and parks,
+to the toilets in McDonalds, to their own apartment.
+</p>
+<h3>Mating rituals</h3>
+<p>
+Bears are romantic creatures by nature, and will naturally look for a
+mate that they can spend the rest of their lives with. They will woo a
+potential suitor by making their dwelling look attractive — for example
+with cave paintings or a bed of reeds in the case of a wild bear, and
+mood lighting and a Michael Bublé CD in the case of an urban bear.
+</p>
+
+<p>
+The following audio clip contains a fact file providing more details
+about bear mating rituals, along with samples and quotes from experts.
+</p>
+
+<audio controls>
+<source src="media/bear.mp3" type="audio/mpeg">
+<source src="media/bear.ogg" type="audio/ogg">
+
+<p>
+Your browser doesn't support HTML audio.
+<a href="media/bear.mp3">Download the audio file.</a>
+</p>
+</audio>
+<section class="transcript">
+<h3>Audio transcript</h3>
+
+<p>
+This isn't really an audio fact file about bears, but it is an audio file that you can transcribe.
+</p>
+</section>
+
+<aside>
+<h3>About the author</h3>
+<p>
+Evan Wild is an unemployed plumber from Doncaster, who has been really
+"in to" wildlife since childhood. He once went to Chester Zoo on
+holiday, but got ill after eating a doner kebab.
+</p>
+
+<p>
+He has never seen a bear, but once read a Daily Mail article about
+them, and thinks they sound cool.
+</p>
+</aside>
+
+<section class="comments">
+<button
+type="button"
+class="show-hide">
+Show comments
+</button>
+
+<div class="comment-wrapper">
+<h2>Add comment</h2>
+<form class="comment-form">
+<div class="flex-pair">
+<label for="name"> Your name: </label>
+
+<input
+type="text"
+name="name"
+id="name"
+placeholder="Enter your name"
+aria-label="Your name">
+</div>
+
+<div class="flex-pair">
+<label for="comment">Your comment:</label>
+
+<input
+type="text"
+name="comment"
+id="comment"
+placeholder="Enter your comment"
+aria-label="Your comment">
+</div>
+
+<div>
+<input type="submit" value="Submit comment">
+</div>
+</form>
+<h2>Comments</h2>
+<ul class="comment-container">
+
+<li>
+<p>Bob Fossil</p>
+
+<p>
+Oh I am so glad you taught me all about the big brown angry guys
+in the woods. With their sniffing little noses and their bad
+attitudes, they can sure be a menace — I was thinking of putting
+them all in a truck and driving them outta here. I run a zoo,
+you know.
+</p>
+</li>
+</ul>
+</div>
+</section>
+</article>
+
+<aside class="secondary">
+<h2>Related</h2>
+
+<ul>
+<li><a href="#">The trouble with Bees</a></li>
+<li><a href="#">The trouble with Otters</a></li>
+<li><a href="#">The trouble with Penguins</a></li>
+<li><a href="#">The trouble with Octopi</a></li>
+<li><a href="#">The trouble with Lemurs</a></li>
+</ul>
+</aside>
+</main>
+
+<footer>
+<p>©Copyright 2050 by nobody. All rights reversed.</p>
+</footer>
+
+<script src="script.js"></script>
 
 </body>
-
 </html>
