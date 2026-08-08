@@ -488,3 +488,382 @@
 
 
 <body>
+<!-- =========================
+         HEADER
+    ========================= -->
+
+    <header>
+
+        <h1>
+            Welcome to our wildlife website
+        </h1>
+
+    </header>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
+    <nav aria-label="Main navigation">
+
+        <ul>
+
+            <li>
+                <a href="#">Home</a>
+            </li>
+
+            <li>
+                <a href="#">Our team</a>
+            </li>
+
+            <li>
+                <a href="#">Projects</a>
+            </li>
+
+            <li>
+                <a href="#">Blog</a>
+            </li>
+
+        </ul>
+
+
+        <form class="search" id="searchForm">
+
+            <label
+                class="hidden"
+                for="search">
+                Search
+            </label>
+
+            <input
+                id="search"
+                type="search"
+                placeholder="Search query">
+
+            <input
+                type="submit"
+                value="Go!">
+
+        </form>
+
+    </nav>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
+    <main>
+
+
+        <!-- LEFT ARTICLE -->
+
+        <article>
+
+            <h2>
+                The trouble with Bears
+            </h2>
+
+
+            <p>
+                By Evan Wild
+            </p>
+
+
+            <p>
+                Tall, lumbering, angry, dangerous.
+                The real live bears of this world are
+                proud, independent creatures, self-serving
+                and always on the hunt for food. Nothing
+                like the bears you see on TV, like Baloo
+                from renowned documentary, The Jungle Book.
+            </p>
+
+
+            <p>
+                So what are bears really like, and why
+                does the world's media portray them with
+                such a skewed vision? In this article we
+                try to answer those questions, and give
+                you a real insight into the life of the bear.
+            </p>
+
+
+            <h3>
+                Types of bear
+            </h3>
+
+
+            <p>
+                Bears come in two varieties — large and
+                medium. You don't get small bears. If you
+                have seen a small bear, then it was in fact
+                probably a baby bear (cub) from another species.
+            </p>
+
+
+            <p>
+                Bears can also be classified in terms of
+                their habitat — both large and medium bears
+                are just as at home in urban areas as they
+                are in the countryside.
+            </p>
+
+
+            <!-- TABLE -->
+
+            <table>
+
+                <caption class="hidden">
+                    Bear information
+                </caption>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Bear Type
+                        </th>
+
+                        <th>
+                            Coat
+                        </th>
+
+                        <th>
+                            Adult Size
+                        </th>
+
+                        <th>
+                            Habitat
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    <tr>
+
+                        <td>
+                            Wild
+                        </td>
+
+                        <td>
+                            Brown or black
+                        </td>
+
+                        <td>
+                            1.4–2.8 meters
+                        </td>
+
+                        <td>
+                            Woods and forests
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Urban
+                        </td>
+
+                        <td>
+                            Various
+                        </td>
+
+                        <td>
+                            1.2–2 meters
+                        </td>
+
+                        <td>
+                            Cities
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+
+            <h3>
+                Habitats and Eating habits
+            </h3>
+
+
+            <p>
+                Wild bears eat a variety of meat, fish,
+                fruit, nuts, and other naturally growing
+                ingredients. In general they will hunt for
+                food themselves in woodland or rivers.
+            </p>
+
+
+            <!-- BEAR IMAGE -->
+
+            <img
+                src="https://cdn.glitch.global/3e194d20-b2e0-4b08-8efa-dccfa5698a7b/wild-bear.jpg?v=1665376579987"
+                alt="A brown bear standing in a river">
+
+
+            <h3>
+                Mating rituals
+            </h3>
+
+
+            <p>
+                Bears are romantic creatures by nature,
+                and will naturally look for a mate that
+                they can spend the rest of their lives with.
+            </p>
+
+
+            <!-- COMMENTS -->
+
+            <section class="comments">
+
+                <h3>
+                    Comments
+                </h3>
+
+
+                <button
+                    id="commentButton"
+                    type="button"
+                    aria-expanded="false">
+
+                    Show comments
+
+                </button>
+
+
+                <div
+                    id="commentBox"
+                    hidden>
+
+                    <form
+                        class="comment-form"
+                        id="commentForm">
+
+
+                        <label for="name">
+                            Name:
+                        </label>
+
+                        <input
+                            id="name"
+                            type="text"
+                            required>
+
+
+                        <br>
+
+
+                        <label for="comment">
+                            Comment:
+                        </label>
+
+                        <input
+                            id="comment"
+                            type="text"
+                            required>
+
+
+                        <input
+                            type="submit"
+                            value="Submit comment">
+
+                    </form>
+
+
+                    <ul id="commentList"></ul>
+
+                </div>
+
+            </section>
+
+        </article>
+
+
+        <!-- =========================
+             PARTITION
+        ========================= -->
+
+        <div
+            class="partition"
+            aria-hidden="true">
+        </div>
+
+
+        <!-- =========================
+             RIGHT RELATED SECTION
+        ========================= -->
+
+        <aside>
+
+            <h2>
+                Related
+            </h2>
+
+
+            <ul>
+
+                <li>
+                    <a href="#">
+                        The trouble with Bees
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        The trouble with Otters
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        The trouble with Penguins
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        The trouble with Octopi
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        The trouble with Lemurs
+                    </a>
+                </li>
+
+            </ul>
+
+        </aside>
+
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            ©Copyright 2050 by nobody.
+            All rights reversed.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
