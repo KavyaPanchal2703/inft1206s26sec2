@@ -180,3 +180,311 @@
         .search input[type="submit"]:hover {
             background-color: #111;
         }
+        /* =========================
+           MAIN PARTITION
+           
+           THIS CREATES THE EXACT
+           VERTICAL PURPLE LINE
+           BETWEEN ARTICLE AND RELATED
+        ========================= */
+
+        main {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 5fr)
+                8px
+                minmax(250px, 2fr);
+
+            margin: 0;
+
+            padding: 0;
+        }
+
+        /* The visible partition */
+        .partition {
+            background-color: #ddddee;
+
+            min-height: 100%;
+        }
+
+
+        /* =========================
+           ARTICLE
+        ========================= */
+
+        article {
+            background-color: white;
+
+            padding: 10px 30px 40px;
+        }
+
+        article h2 {
+            font-size: 3rem;
+
+            text-align: center;
+
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        article h3 {
+            font-size: 2.2rem;
+
+            margin-top: 25px;
+            margin-bottom: 8px;
+        }
+
+
+        /* =========================
+           RELATED SECTION
+        ========================= */
+
+        aside {
+            background-color: white;
+
+            padding: 10px 30px;
+
+            min-height: 600px;
+        }
+
+        aside h2 {
+            font-size: 3rem;
+
+            text-align: center;
+
+            margin-top: 10px;
+        }
+
+        aside ul {
+            margin-top: 30px;
+
+            padding-left: 25px;
+        }
+
+        aside li {
+            margin-bottom: 4px;
+        }
+
+        aside a {
+            color: #0000ee;
+
+            text-decoration: underline;
+        }
+
+        aside a:visited {
+            color: #551a8b;
+        }
+
+
+        /* =========================
+           TABLE
+        ========================= */
+
+        table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            background-color: #ddddee;
+
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #999;
+
+            padding: 8px;
+
+            text-align: center;
+        }
+
+        th {
+            background-color: #e6e6f0;
+        }
+
+
+        /* =========================
+           IMAGES
+        ========================= */
+
+        article img {
+            display: block;
+
+            max-width: 100%;
+
+            height: auto;
+
+            margin: 20px auto;
+        }
+
+
+        /* =========================
+           COMMENTS
+        ========================= */
+
+        .comments {
+            background-color: #ddeeff;
+
+            padding: 15px;
+
+            margin-top: 25px;
+        }
+
+        .comments button {
+            background-color: #333;
+
+            color: white;
+
+            border: none;
+
+            padding: 8px 15px;
+
+            cursor: pointer;
+
+            font-family: "Open Sans Condensed", sans-serif;
+
+            font-size: 1.5rem;
+        }
+
+        .comments button:hover {
+            background-color: #111;
+        }
+
+        .comment-form {
+            margin-top: 15px;
+        }
+
+        .comment-form label {
+            display: inline-block;
+
+            width: 80px;
+
+            margin: 8px;
+        }
+
+        .comment-form input[type="text"] {
+            width: 60%;
+
+            padding: 6px;
+        }
+
+        .comment-form input[type="submit"] {
+            display: block;
+
+            margin: 15px auto;
+
+            background-color: #333;
+
+            color: white;
+
+            border: none;
+
+            padding: 8px 20px;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background-color: white;
+
+            margin-top: 8px;
+
+            padding: 10px 30px;
+        }
+
+
+        /* =========================
+           ACCESSIBILITY
+        ========================= */
+
+        a:focus,
+        button:focus,
+        input:focus {
+            outline: 3px solid #005fcc;
+
+            outline-offset: 2px;
+        }
+
+        .hidden {
+            position: absolute;
+
+            width: 1px;
+            height: 1px;
+
+            padding: 0;
+            margin: -1px;
+
+            overflow: hidden;
+
+            clip: rect(0, 0, 0, 0);
+
+            white-space: nowrap;
+
+            border: 0;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            body {
+                width: 95%;
+
+                min-width: 0;
+            }
+
+            nav {
+                height: auto;
+
+                padding: 15px;
+
+                flex-direction: column;
+            }
+
+            nav ul {
+                width: 100%;
+
+                margin-bottom: 15px;
+            }
+
+            nav li {
+                min-width: 0;
+            }
+
+            .search {
+                width: 100%;
+
+                justify-content: center;
+            }
+
+            main {
+                grid-template-columns:
+                    1fr
+                    8px
+                    1fr;
+            }
+
+            article {
+                padding: 10px 15px;
+            }
+
+            aside {
+                padding: 10px 15px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
