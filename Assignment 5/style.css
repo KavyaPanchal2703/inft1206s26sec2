@@ -1,0 +1,278 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #ddddee;
+    font-size: 10px;
+}
+
+body {
+    width: 80%;
+    min-width: 800px;
+    margin: 0 auto;
+    background-color: #ddddee;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Sonsie One", cursive;
+    color: #222;
+}
+
+p,
+li,
+input,
+label,
+table {
+    font-family: "Open Sans Condensed", Arial, sans-serif;
+    color: #222;
+}
+
+p,
+li,
+table {
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+header {
+    padding: 15px 0 20px;
+}
+
+header h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 4rem;
+    color: white;
+    text-shadow: 2px 2px 5px #555,
+                 3px 3px 8px #777;
+}
+
+nav {
+    height: 65px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+nav ul {
+    flex: 2;
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    flex: 1;
+    text-align: center;
+}
+
+nav a {
+    color: #222;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.search {
+    flex: 1;
+    display: flex;
+    padding: 0 15px;
+    gap: 8px;
+}
+
+.search input[type="search"] {
+    width: 170px;
+    height: 30px;
+    border: 1px solid #ddd;
+    padding: 5px;
+    font-size: 1.4rem;
+}
+
+.search input[type="submit"] {
+    width: 65px;
+    height: 30px;
+    border: none;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+}
+
+main {
+    display: grid;
+
+    /* LEFT | PARTITION | RIGHT */
+    grid-template-columns:
+        minmax(0, 5fr)
+        8px
+        minmax(250px, 2fr);
+}
+
+.partition {
+    background-color: #ddddee;
+    min-height: 100%;
+}
+
+article {
+    background-color: white;
+    padding: 10px 30px 40px;
+}
+
+article h2 {
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 10px;
+}
+
+article h3 {
+    font-size: 2.2rem;
+    margin-top: 25px;
+}
+
+aside {
+    background-color: white;
+    padding: 10px 30px;
+    min-height: 600px;
+}
+
+aside h2 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+aside ul {
+    margin-top: 30px;
+    padding-left: 25px;
+}
+
+aside a {
+    color: #0000ee;
+    text-decoration: underline;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ddddee;
+    margin-top: 20px;
+}
+
+th,
+td {
+    border: 1px solid #999;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #e6e6f0;
+}
+
+article img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+}
+
+.comments {
+    background-color: #ddeeff;
+    padding: 15px;
+    margin-top: 25px;
+}
+
+.comments button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+.comment-form {
+    margin-top: 15px;
+}
+
+.comment-form label {
+    display: inline-block;
+    width: 80px;
+    margin: 8px;
+}
+
+.comment-form input[type="text"] {
+    width: 60%;
+    padding: 6px;
+}
+
+.comment-form input[type="submit"] {
+    display: block;
+    margin: 15px auto;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+}
+
+footer {
+    background-color: white;
+    margin-top: 8px;
+    padding: 10px 30px;
+}
+
+.hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+a:focus,
+button:focus,
+input:focus {
+    outline: 3px solid #005fcc;
+    outline-offset: 2px;
+}
+
+@media (max-width: 800px) {
+
+    body {
+        width: 95%;
+        min-width: 0;
+    }
+
+    nav {
+        height: auto;
+        padding: 15px;
+        flex-direction: column;
+    }
+
+    nav ul {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .search {
+        width: 100%;
+        justify-content: center;
+    }
+
+    main {
+        grid-template-columns:
+            1fr
+            8px
+            1fr;
+    }
+}
