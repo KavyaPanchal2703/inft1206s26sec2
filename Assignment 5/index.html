@@ -66,3 +66,117 @@
             font-size: 1.6rem;
             line-height: 1.5;
         }
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            padding: 15px 0 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            text-align: center;
+
+            font-size: 4rem;
+
+            color: white;
+
+            text-shadow:
+                2px 2px 5px #555,
+                3px 3px 8px #777;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            height: 65px;
+
+            background-color: white;
+
+            display: flex;
+            align-items: center;
+
+            margin-bottom: 8px;
+        }
+
+        nav ul {
+            flex: 2;
+
+            display: flex;
+
+            list-style: none;
+
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            flex: 1;
+
+            text-align: center;
+        }
+
+        nav a {
+            color: #222;
+
+            text-decoration: none;
+
+            text-transform: uppercase;
+
+            font-size: 1.7rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================
+           SEARCH
+        ========================= */
+
+        .search {
+            flex: 1;
+
+            display: flex;
+
+            padding: 0 15px;
+
+            gap: 8px;
+        }
+
+        .search input[type="search"] {
+            width: 170px;
+
+            height: 30px;
+
+            border: 1px solid #ddd;
+
+            padding: 5px;
+
+            font-size: 1.4rem;
+        }
+
+        .search input[type="submit"] {
+            width: 65px;
+
+            height: 30px;
+
+            border: none;
+
+            background-color: #333;
+
+            color: white;
+
+            cursor: pointer;
+
+            font-size: 1.4rem;
+        }
+
+        .search input[type="submit"]:hover {
+            background-color: #111;
+        }
